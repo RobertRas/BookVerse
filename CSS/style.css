@@ -1,0 +1,71 @@
+
+/*As variáveis definidas nele ficam disponíveis para todo o documento.*/
+/*Se depois você quiser mudar a cor principal do site inteiro, basta alterar uma linha:*/
+:root {
+    --prim:#7226B5;
+    --sec:#000000;
+    --ter:#969696;
+}
+
+
+/*selecionamos todos os elementos da página*/
+/*Ele faz uma "limpeza" nos estilos padrão do 
+navegador e define algumas configurações básicas 
+para toda a página*/
+*{
+    margin: 0; /*Remove as margens externas de todos os elementos.*/
+    padding: 0; /*Remove o espaço interno dos elementos.*/
+    box-sizing: border-box; /*define a largura máxima de acordo com o width*/
+    font-family: sans-serif;
+    
+}
+
+header, footer{
+    background-color: var(--prim);
+    color: var(--sec);
+    padding: 1rem;
+    display: flex;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+header{
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer{
+    justify-content: center;
+}
+
+nav a{
+    text-decoration: none;
+    color: var(--sec);
+    padding: 1rem;
+}
+nav a:hover{
+    background-color: var(--ter);
+    color: var(--sec);
+    border-radius: 20px;
+}
+
+main{
+    padding: 1rem;
+}
+
+.jumbo{
+    width: 100%;
+    height: 500px;
+    object-fit: fill;
+}
+
+h1{
+    text-align: center;
+    background-color: var(--prim);
+    color: var(--sec);
+    margin: 1rem 0;
+}
