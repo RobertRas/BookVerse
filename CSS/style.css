@@ -20,6 +20,13 @@ para toda a página*/
     
 }
 
+/* .div-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+} */
+
 header, footer{
     background-color: var(--prim);
     color: var(--sec);
@@ -68,4 +75,75 @@ h1{
     background-color: var(--prim);
     color: var(--sec);
     margin: 1rem 0;
+}
+
+.card-container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(5,1fr);
+    justify-content: center;
+}
+
+.card{
+    border:  1px solid black;
+    background-color: var(--prim);
+    color: var(--sec);
+    border-radius: 8px;
+    width: 200px;
+    height: 250px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.card:hover{
+    box-shadow: 5px 5px 10px 0 black;
+}
+
+.card-img img{
+    width: 100%;
+    height: 200px; 
+    /*tive que definir a altura para que a imagem ficasse dentro da div. */
+    /*necessário verificar uma ação para que a imagem se ajuste de forma automática dentro da div card-img*/
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.card-text{
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.card-container a {
+    text-decoration: none;
+    color: var(--ter);
+}
+
+.main-detalhe{
+    display: flex;
+    justify-content: center; /*centraliza horizontal*/
+    align-items: center; /*centraliza verticalmente*/
+}
+
+#texto-detalhe{
+    width: 20%;
+    margin-left: 20px;
+}
+
+form{
+    background-color: var(--prim);
+    color: var(--ter);
+    padding: 1rem;
+    border-radius: 10px;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-items{
+    margin: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
