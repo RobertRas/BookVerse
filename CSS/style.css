@@ -147,3 +147,23 @@ form{
     align-items: center;
     width: 100%;
 }
+
+.form-items input{
+    border-radius: 8px;
+    padding: 0.5rem;
+    border: none;
+}
+
+button{
+    background-color: var(--ter);
+    color: var(--sec);
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin: 1rem;
+}
+
+button:hover{
+    background-color: var(--sec);
+    color: var(--ter);
+    border: 1px solid var(--sec);
+}
