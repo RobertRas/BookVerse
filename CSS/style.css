@@ -134,10 +134,11 @@ form{
     color: var(--ter);
     padding: 1rem;
     border-radius: 10px;
-    width: 20%;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .form-items{
@@ -152,6 +153,7 @@ form{
     border-radius: 8px;
     padding: 0.5rem;
     border: none;
+    width: 75%;
 }
 
 button{
@@ -180,6 +182,10 @@ button:hover{
         display: flex;
         flex-direction: column;
     }
+    .main-detalhe{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 @media only screen and (min-width: 600px) and (max-width:900px){
     .card-container{
@@ -190,5 +196,9 @@ button:hover{
     .card-container{
         grid-template-columns: repeat(3, 1fr);
     }
+}
+
+footer{
+    margin-top: 26%;
 }
 
