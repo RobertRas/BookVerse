@@ -182,10 +182,10 @@ button:hover{
         display: flex;
         flex-direction: column;
     }
-    .main-detalhe{
+   /*  .main-detalhe{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-    }
+    } */
 }
 @media only screen and (min-width: 600px) and (max-width:900px){
     .card-container{
