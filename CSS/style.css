@@ -43,6 +43,8 @@ header, footer{
 header{
     justify-content: space-between;
     align-items: center;
+    width: auto;
+    height: auto;
 }
 
 footer{
@@ -63,6 +65,11 @@ nav a:hover{
 main{
     padding: 1rem;
 }
+
+.banner{
+        width:100%; /* aqui eu indico que a imagem vai ocupar 100% da largura da tag onde a mesma está contida */
+        height: auto;/* aqui eu defino que a altura deve se ajustar a largura */
+    }
 
 .jumbo{
     width: 100%;
@@ -182,6 +189,7 @@ button:hover{
         display: flex;
         flex-direction: column;
     }
+    
    /*  .main-detalhe{
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -191,6 +199,7 @@ button:hover{
     .card-container{
         grid-template-columns: repeat(2, 1fr);
     }
+    
 }
 @media only screen and (min-width: 900px) and (max-width:1200px){
     .card-container{
@@ -200,5 +209,16 @@ button:hover{
 
 footer{
     margin-top: 26%;
+}
+
+
+#bg-video {
+  position: fixed;   /* fixa o vídeo no fundo */
+  right: 0;
+  bottom: 0;
+  min-width: 100%;   /* ocupa toda a largura */
+  min-height: 100%;  /* ocupa toda a altura */
+  z-index: -1;       /* fica atrás do conteúdo */
+  object-fit: cover; /* corta proporcionalmente para preencher */
 }
 
