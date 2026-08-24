@@ -7,6 +7,19 @@
     --ter:#969696;
 }
 
+#olhos {
+    /* position: absolute; */
+/*     right: 10px;
+    top: 50%; */
+    /* transform: translateY(-50%); */
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+    position: absolute;
+    right: 10px;
+}
+
 
 /*selecionamos todos os elementos da página*/
 /*Ele faz uma "limpeza" nos estilos padrão do 
@@ -18,6 +31,10 @@ para toda a página*/
     box-sizing: border-box; /*define a largura máxima de acordo com o width*/
     font-family: sans-serif;
     
+}
+
+label{
+    width: 50px;
 }
 
 /* .div-img img{
@@ -154,13 +171,15 @@ form{
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    position: relative;
 }
 
 .form-items input{
     border-radius: 8px;
     padding: 0.5rem;
     border: none;
-    width: 75%;
+    width: 100%;
+    margin-left: 10px;
 }
 
 button{
