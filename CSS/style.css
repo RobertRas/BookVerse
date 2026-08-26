@@ -8,14 +8,10 @@
 }
 
 #olhos {
-    /* position: absolute; */
-/*     right: 10px;
-    top: 50%; */
-    /* transform: translateY(-50%); */
     cursor: pointer;
     width: 24px;
     height: 24px;
-    z-index: 1;
+    /* z-index: 1; */
     position: absolute;
     right: 10px;
 }
@@ -32,10 +28,10 @@ para toda a página*/
     font-family: sans-serif;
     
 }
-
+/* 
 label{
     width: 50px;
-}
+} */
 
 /* .div-img img{
     width: 100%;
