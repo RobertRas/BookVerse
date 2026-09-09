@@ -8,6 +8,10 @@
 }
 
 #olhos {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0feebc57dd5a67ad68446e9def78024077740aec
     cursor: pointer;
     width: 24px;
     height: 24px;
@@ -15,6 +19,8 @@
     position: absolute;
     right: 10px;
 }
+
+
 
 
 /*selecionamos todos os elementos da página*/
@@ -28,6 +34,7 @@ para toda a página*/
     font-family: sans-serif;
     
 }
+<<<<<<< HEAD
 /* 
 label{
     width: 50px;
@@ -39,6 +46,9 @@ label{
     object-fit: contain;
     display: block;
 } */
+=======
+
+>>>>>>> 0feebc57dd5a67ad68446e9def78024077740aec
 
 header, footer{
     background-color: var(--prim);
@@ -192,6 +202,14 @@ button:hover{
     border: 1px solid var(--sec);
 }
 
+#btn-menu{
+    display: none;
+}
+
+.aparecer{
+    display: flex !important;
+}
+
 @media only screen and (max-width: 600px){
     .card-container{
         grid-template-columns: repeat(1, 1fr);
@@ -205,10 +223,20 @@ button:hover{
         flex-direction: column;
     }
     
-   /*  .main-detalhe{
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-    } */
+    .logo-menu{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    #btn-menu{
+        display: block; 
+    }
+
+    #menu_global{
+        display: none;
+    }
+ 
 }
 @media only screen and (min-width: 600px) and (max-width:900px){
     .card-container{

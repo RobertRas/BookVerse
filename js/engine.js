@@ -1,7 +1,11 @@
 const senhaInput = document.getElementById("senha");
 const alternaOlho = document.getElementById("olhos");
+const btnMenu = document.getElementById("btn-menu");
+const menu = document.getElementById("menu_global");
 
-alternaOlho.addEventListener("click", () => {
+
+if(alternaOlho){
+    alternaOlho.addEventListener("click", () => {
     if(senhaInput.type ==="password"){
         senhaInput.type="text";
         alternaOlho.src="../BookVerse/imagens/aberto.png";
@@ -12,3 +16,10 @@ alternaOlho.addEventListener("click", () => {
 
     }
 })
+}
+
+if(btnMenu){
+    btnMenu.addEventListener("click", ()=>{
+    menu.classList.toggle("aparecer");
+})
+}
