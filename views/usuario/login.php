@@ -1,35 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
-    <title>Document</title>
-</head>
-<body>
-
-
-    <header>
-        <video autoplay muted loop id="bg-video">
-            <source src="src/universo.mp4" type="video/mp4">
-            Seu navegador não suporta vídeo em HTML5.
-        </video>
-
-        <div class="logo-menu">
-            <img src="imagens/logo_senac.png" alt="" class="logo">
-
-            <img src="imagens/menu.png" alt="" id="menu_responsivo">
-        </div>
-        
-
-        <h1> BookVerse</h1>
-
-        <nav>
-            <a href="index.html">Início</a>
-            <a href="cadastro.html">Cadastre-se</a>
-            <a href="login.html">Entrar</a>
-        </nav>
-    </header>
+<?php
+    require_once __DIR__ . "/template/_cabecalho.php"
+?>
 
 
     <main class="main-detalhe">
@@ -55,9 +26,9 @@
             <button type="submit">login</button>
         </form>
     </main>
-    <footer>
-        <p>2026</p>
-    </footer>
+<?php
+    require_once __DIR__ . "/template/_rodape.php"
+?>
 
     <script src="../BookVerse/js/engine.js"></script>
     

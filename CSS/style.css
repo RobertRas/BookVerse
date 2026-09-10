@@ -8,10 +8,6 @@
 }
 
 #olhos {
-<<<<<<< HEAD
-=======
-
->>>>>>> 0feebc57dd5a67ad68446e9def78024077740aec
     cursor: pointer;
     width: 24px;
     height: 24px;
@@ -34,21 +30,7 @@ para toda a página*/
     font-family: sans-serif;
     
 }
-<<<<<<< HEAD
-/* 
-label{
-    width: 50px;
-} */
 
-/* .div-img img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    dispay: block;
-} */
-=======
-
->>>>>>> 0feebc57dd5a67ad68446e9def78024077740aec
 
 header, footer{
     background-color: var(--prim);
@@ -208,6 +190,18 @@ button:hover{
 
 .aparecer{
     display: flex !important;
+}
+
+.gerenciar-livros, .gerenciar-categoria{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--prim);
+}
+
+.gerenciar-livros th, .gerenciar-categoria td{
+    border: 1px solid var(--sec);
+    padding: 8px;
+    text-align: left;
 }
 
 @media only screen and (max-width: 600px){
