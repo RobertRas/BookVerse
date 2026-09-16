@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . "/template/_cabecalho.php"
+    require_once __DIR__ . "/../../template/_cabecalho.php"
 ?>
 
 
@@ -27,7 +27,7 @@
         </form>
     </main>
 <?php
-    require_once __DIR__ . "/template/_rodape.php"
+    require_once __DIR__ . "/../../template/_rodape.php"
 ?>
 
     <script src="../BookVerse/js/engine.js"></script>

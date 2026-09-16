@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . "/template/_cabecalho.php";
+    require_once __DIR__ . "/template/_cabecalho.php";      
 
 ?>
 
@@ -31,5 +31,5 @@
         </div>
     </main>
     <?php
-    require_once __DIR__ . "/template/_rodape.php"
+    require_once __DIR__ . "/../BookVerse/template/_rodape.php";
 ?>

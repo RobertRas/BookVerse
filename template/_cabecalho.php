@@ -21,9 +21,9 @@
         <h1> BookVerse</h1>
 
         <nav id="menu_global">
-            <a href="/Bookverse/index.php">Início</a>
-            <a href="/views/usuario/cadastro.php">Cadastre-se</a>
-            <a href="/Bookverse/views/usuario/login.php">Entrar</a>
-            <a href="/Bookverse/views/usuario/perfil.php">Perfil</a>
+            <a href="/BookVerse/index.php">Início</a>
+            <a href="/BookVerse/views/usuario/cadastro.php">Cadastre-se</a>
+            <a href="/BookVerse/views/usuario/login.php">Entrar</a>
+            <a href="/BookVerse/views/usuario/perfil.php">Perfil</a>
         </nav>
     </header>
