@@ -1,9 +1,6 @@
 <?php
-    require_once __DIR__ . "/template/_cabecalho.php";      
+    require_once __DIR__ . "/template/_cabecalho.php";
 
-    $conn = new PDO("mysql:host=localhost;dbname=biblioteca;charset=utf8mb4", "root", "");
-    $query = "SELECT * FROM livros";
-    $resultado = $conn->query($query)->fetchAll();
 ?>
 
     <main>
