@@ -1,5 +1,21 @@
 <?php
-    require_once "_cabecalho.php"
+    require_once "_cabecalho.php";
+    require_once "_livro.php";
+
+
+    //esse if serve para que se o usuario tentar acessar a página detalhes.php sem passar o id do livro, ele seja redirecionado para a página inicial
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $livro = Livro::buscarPorId($id);
+    } else {
+        header("Location: index.php");
+        exit();
+
+    }
+    if(!$livro) {
+        header("Location: /bookverse/index.php");
+        exit();
+    }
 ?>
 
     <main class="main-detalhe">

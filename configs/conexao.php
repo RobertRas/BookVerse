@@ -2,7 +2,7 @@
 
 class Conexao {
     public static function conectar() {
-        $env = parse_ini_file(__DIR__ . "/../.env");
+        $env = parse_ini_file(__DIR__ . "/../BookVerse/.env");
 
         $host = $env['DB_HOST'];
         $dbname = $env['DB_NAME'];
