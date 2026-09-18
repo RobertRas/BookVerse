@@ -4,7 +4,7 @@
 
 
     <main class="main-detalhe">
-        <form action="" method="post">
+        <form action="/controllers/login_controller.php" method="post">
             <img src="imagens/logo_senac.png" alt="" class="logo">
             <!-- <div class="form-items">
                 <label for="nome">Nome: </label>

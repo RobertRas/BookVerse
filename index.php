@@ -1,5 +1,8 @@
 <?php
-    require_once __DIR__ . "/template/_cabecalho.php";      
+    require_once __DIR__ . "/template/_cabecalho.php";   
+    require_once __DIR__ . "/models/livros.php";   
+
+    $resultado = Livro::listar(); 
 
 ?>
 

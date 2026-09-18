@@ -1,25 +1,34 @@
 <?php
-    require_once __DIR__ . "/../../template/_cabecalho.php"
+require_once __DIR__ . "/../../template/_cabecalho.php"
 ?>
 
 
-    <main class="main-detalhe">
-        <div>
-            <table class="gerenciar-livros">
+<main class="main-detalhe">
+    <div class="container-perfil">
+        <div class="itens-perfil">
+            <p>Nome: <?=$_SESSION['nome']; ?></p>
+            <p>Email: <?= $_SESSION['email']; ?></p>
+            <!-- <table class="gerenciar-livros">
                 <tr>
                     <th>nome do administrador</th>
                     <th><a href="gerenciar_livros.php">administrar livros</a></th>
                     <th>email@dominio.com</th>
                     <th colspan="2"><a href="gerenciar_categoria.php">administrar categorias</a></th>
                 </tr>
-            </table>
+            </table> -->
         </div>
-    </main>
-    <?php
-    require_once __DIR__ . "/../../template/_rodape.php"
+        <div class="itens-perfil">
+            <a href="/Bookverse/views/categoria/gerenciar_categoria.php" class="link-btn">Gerenciar Categorias</a>
+            <a href="/Bookverse/views/categoria/gerenciar_livros.php" class="link-btn">Gerenciar Livros</a>
+        </div>
+    </div>
+</main>
+<?php
+require_once __DIR__ . "/../../template/_rodape.php"
 ?>
 
-    <script src="../BookVerse/js/engine.js"></script>
-    
+<script src="../BookVerse/js/engine.js"></script>
+
 </body>
+
 </html>
