@@ -28,7 +28,7 @@ class Livro {
     public static function buscarPorId($id){
         try {
             $conexao = Conexao::conectar();
-            $sql = "SELECT livro.*, categoria.nome FROM livro JOIN categoria ON livro. id_categoria = categoria.id_categoria WHERE id_livro = :id";
+            $sql = "SELECT livro.*, categoria.nome FROM livro  LEFT JOIN categoria ON livro. id_categoria = categoria.id_categoria WHERE id_livro = :id";
             $stmt = $conexao->prepare($sql);
             $stmt->bindValue(':id', $id);
             $stmt->execute();

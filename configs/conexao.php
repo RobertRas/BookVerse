@@ -18,4 +18,4 @@ class Conexao {
 
 }
 
-//Conexao::conectar();
+Conexao::conectar();

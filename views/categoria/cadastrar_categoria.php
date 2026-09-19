@@ -1,5 +1,5 @@
 <?php
-    require_once "_cabecalho.php"
+    require_once "/../../template/_cabecalho.php"
 ?>
     <main class="main-detalhe">
         <form action="" method="post">
