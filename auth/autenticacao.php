@@ -16,11 +16,11 @@ class Autenticacao {
             $_SESSION['email'] = $usuario['email'];
             $_SESSION['foto'] = $usuario['foto'];
 
-            header("Location: ../BookVerse/views/usuario/perfil.php");
+            header("Location:/BookVerse/views/usuario/perfil.php");
             exit();
         }
 
-        header("Location: ../BookVerse/views/usuario/login.php)");
+        header("Location: /BookVerse/views/usuario/login.php)");
         exit();
     }
 }

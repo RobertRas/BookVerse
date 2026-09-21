@@ -18,8 +18,8 @@ require_once __DIR__ . "/../../template/_cabecalho.php"
             </table> -->
         </div>
         <div class="itens-perfil">
-            <a href="/Bookverse/views/categoria/gerenciar_categoria.php" class="link-btn">Gerenciar Categorias</a>
-            <a href="/Bookverse/views/categoria/gerenciar_livros.php" class="link-btn">Gerenciar Livros</a>
+            <a href="../categoria/gerenciar_categoria.php" class="link-btn">Gerenciar Categorias</a>
+            <a href="../categoria/cadastrar_categoria.php" class="link-btn">Cadastrar Categoria</a>
         </div>
     </div>
 </main>

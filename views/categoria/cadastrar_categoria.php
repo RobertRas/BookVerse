@@ -1,5 +1,5 @@
 <?php
-    require_once "/../../template/_cabecalho.php"
+    require_once __DIR__ ."/../../template/_cabecalho.php";
 ?>
     <main class="main-detalhe">
         <form action="" method="post">
@@ -13,7 +13,7 @@
     </main>
 
 <?php
-    require_once "_rodape.php"
+    require_once "../../template/_rodape.php"
 ?>
 </body>
 </html>
