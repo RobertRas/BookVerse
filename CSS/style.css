@@ -204,6 +204,17 @@ button:hover{
     text-align: left;
 }
 
+.avisos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--prim);
+    color: var(--ter);
+    margin: 1rem;
+    border-radius: 10px;
+}
+
 @media only screen and (max-width: 600px){
     .card-container{
         grid-template-columns: repeat(1, 1fr);
