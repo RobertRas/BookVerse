@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/../conexao.php";
+require_once __DIR__ . "/../configs/conexao.php";
 
 class Usuario{
     private $id_usuario;

@@ -13,7 +13,8 @@
         <div class="card-container">
             <?php foreach ($resultado as $livro): ?>
             <!-- essa tag é o card -->
-            <a href="detalhes.html">
+            <!-- <a href="/biblioteca/views/livro/detalhes.php?id=<?=$livro["id_livro"]?>"> -->
+            <a href="/BookVerse/views/livro/detalhes.php?id=<?= $livro["id_livro"] ?>">
                 <div class="card">
                     <!-- como fazer com que os elementos contidos na div card não a ultrapassem? -->
                     
