@@ -1,11 +1,8 @@
 <?php
     require_once __DIR__ ."/../../template/_cabecalho.php";
-<<<<<<< HEAD
     require_once __DIR__ ."/../../models/categoria.php";
 
     $resultado = Categoria::listarCategorias();
-=======
->>>>>>> origin
 ?>
 
     <main>

@@ -2,6 +2,8 @@
 require_once __DIR__ . "/../models/usuario.php";
 $nome = $_POST["nome"];
 
+
+//receber os dados do front
 $email = $_POST["email"];
 $senha = $_POST["senha"];
 $senha = password_hash($senha, PASSWORD_DEFAULT);
