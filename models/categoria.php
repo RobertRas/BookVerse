@@ -5,7 +5,48 @@ class Categoria
 {
     private $id_categoria;
     private $nome_categoria;
+    
+    public function getId()
+    {
+        return $this->id_categoria;
+    }
 
+    public function getNome()
+    {
+        return $this->nome_categoria;
+    }
+
+
+    public function carregar($id){
+        try {
+            $conexao = Conexao::conectar();
+            $sql = "SELECT * FROM categoria WHERE id_categoria = :id";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($resultado) {
+                $this->id_categoria = $resultado['id_categoria'];
+                $this->nome_categoria = $resultado['nome'];
+            } else {
+                throw new Exception("Categoria não encontrada.");
+            }
+        } catch (PDOException $e) {
+            echo 'Erro ao carregar categoria: ' . $e->getMessage();
+        }
+    }
+    public function deletar($id){
+        try{
+            $conexao = Conexao::conectar();
+            $sql = "DELETE FROM categoria WHERE id_categoria = :id";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo 'Erro ao deletar categoria: ' . $e->getMessage();
+        }
+    }
     public static function listarCategorias()
     {
         try {
