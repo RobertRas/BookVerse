@@ -21,7 +21,7 @@ class Conexao
         // O primeiro parâmetro é o DSN (Data Source Name), onde definimos que o banco é mysql, passamos o host, o nome do banco e o charset (utf8mb4 para suportar emojis e acentos).
         // Os outros dois parâmetros são as credenciais de acesso.
 
-        $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+        $conn = new PDO("mysql:host=$host;port=3307;dbname=$dbname;charset=utf8mb4", $username, $password);
         // Configura o PDO para lançar "Exceções" (erros fatais) sempre que um erro de banco de dados ocorrer.
         // Isso facilita muito descobrir onde o erro aconteceu e tratá-lo com blocos try/catch.
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

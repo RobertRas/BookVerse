@@ -8,7 +8,7 @@ $categoria =  new Categoria();
 $categoria->inserir($nome);
 
 $_SESSION['aviso'] = "Categoria inserir com sucesso!";
-header('Location: BookVerse/views/categoria/gerenciar_categoria.php');
+header('Location: /BookVerse/views/categoria/gerenciar_categoria.php');
 exit();
 
 

@@ -1,39 +1,41 @@
 <?php
-    require_once __DIR__ . "/template/_cabecalho.php";   
-    require_once __DIR__ . "/models/livros.php";   
+require_once __DIR__ . "/template/_cabecalho.php";
+require_once __DIR__ . "/models/livros.php";
 
-    $resultado = Livro::listar(); 
-
+$resultado = Livro::listar();
 ?>
 
-    <main>
+<main>
+    <img class="banner jumbo" src="imagens/logo_senac.png" alt="">
+    <h1>Biblioteca</h1>
+    <div class="card-container">
+        <?php foreach ($resultado as $livro): ?>
+            <?php
+            // Pega o ID com segurança
+            $id = $livro['id_livro'] ?? $livro['id'] ?? '';
 
-        <img class="banner" src="imagens/logo_senac.png" alt="" class="jumbo">
-        <h1>Biblioteca</h1>
-        <div class="card-container">
-            <?php foreach ($resultado as $livro): ?>
-            <!-- essa tag é o card -->
-            <!-- <a href="/biblioteca/views/livro/detalhes.php?id=<?=$livro["id_livro"]?>"> -->
-            <a href="/BookVerse/views/livro/detalhes.php?id=<?= $livro["id_livro"] ?>">
+            // Verifica se 'capa' existe no array retornado do banco
+            $capa = $livro['capa'] ?? $livro['imagem'] ?? null;
+            ?>
+            <a href="/BookVerse/views/livro/detalhes.php?id=<?= $id ?>">
                 <div class="card">
-                    <!-- como fazer com que os elementos contidos na div card não a ultrapassem? -->
-                    
                     <div class="card-img">
-                        <!-- como fazer com que a imagem contidos na div card-img não a ultrapassem? -->
-                        <?php if($livro["capa"] == null): ?>
-                            <img src="imagens/Captura de tela 2026-07-01 200144.png" alt="" class="imagem_livro"> <!-- imagem padrão caso não haja capa cadastrada. tenho que alterar o caminho  -->
+                        <?php if (empty($capa)): ?>
+                            <img src="imagens/Captura de tela 2026-07-01 200144.png" alt="Capa padrão" class="imagem_livro">
                         <?php else: ?>
-                            <img src="imagens/Captura de tela 2026-07-01 200144.png" alt="" class="imagem_livro">
-                        <?php endif; ?> 
+                            <img src="imagens/<?= htmlspecialchars($capa) ?>" alt="<?= htmlspecialchars($livro['titulo'] ?? '') ?>" class="imagem_livro">
+                        <?php endif; ?>
                     </div>
                     <div class="card-text">
-                        <h2><?php echo $livro['titulo']; ?></h2>
+                        <h2><?= htmlspecialchars($livro['titulo'] ?? 'Sem título'); ?></h2>
                     </div>
                 </div>
             </a>
-            <?php endforeach; ?>
-        </div>
-    </main>
-    <?php
-    require_once __DIR__ . "/../BookVerse/template/_rodape.php";
+        <?php endforeach; ?>
+    </div>
+</main>
+
+<?php
+// Corrigido: usando __DIR__ para apontar corretamente para a pasta template local
+require_once __DIR__ . "/template/_rodape.php";
 ?>

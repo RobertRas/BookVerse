@@ -2,7 +2,7 @@
     require_once __DIR__ ."/../../template/_cabecalho.php";
 ?>
     <main class="main-detalhe">
-        <form action="/controllers/categoria_add_controller.php" method="post">
+        <form action="/BookVerse/controllers/categoria_add_controller.php" method="post">
             <p>Cadastrar Categoria</p>
             <div class="form-items">
                 <label for="nome">Nome da categoria: </label>

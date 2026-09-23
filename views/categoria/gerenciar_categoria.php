@@ -14,8 +14,8 @@
             <?php foreach($resultado as $categoria): ?>
             <tr>
                 <td><?=  $categoria['nome'] ?></td>
-                <td><a href="editar_categoria.php">Editar</a></td>
-                <td><a href="excluir_categoria.php">Excluir</a></td>
+                <td><a href="../controllers/categoria_edit_controller.php?id=<?= $categoria['id_categoria'] ?>">Editar</a></td>
+                <td><a href="../controllers/categoria_del_controller.php?id=<?= $categoria['id_categoria'] ?>">Excluir</a></td>
             </tr>
             <?php endforeach; ?>
         </table>
