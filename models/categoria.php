@@ -5,7 +5,7 @@ class Categoria
 {
     private $id_categoria;
     private $nome_categoria;
-    
+
     public function getId()
     {
         return $this->id_categoria;
@@ -17,7 +17,8 @@ class Categoria
     }
 
 
-    public function carregar($id){
+    public function carregar($id)
+    {
         try {
             $conexao = Conexao::conectar();
             $sql = "SELECT * FROM categoria WHERE id_categoria = :id";
@@ -36,8 +37,9 @@ class Categoria
             echo 'Erro ao carregar categoria: ' . $e->getMessage();
         }
     }
-    public function deletar($id){
-        try{
+    public function deletar($id)
+    {
+        try {
             $conexao = Conexao::conectar();
             $sql = "DELETE FROM categoria WHERE id_categoria = :id";
             $stmt = $conexao->prepare($sql);
@@ -60,28 +62,55 @@ class Categoria
         }
     }
 
-        public function inserir($nome){
+    public function inserir($nome)
+    {
         //criar uma conexão com o banco de dados
         //criar o sql
         //preparar o sql
         //substituir os dados depois  de preparado
         //executar
 
-        try{
-            
+        try {
+
             $conexao = Conexao::conectar();
 
             $sql = "INSERT INTO categoria (nome) VALUES (:nome)";
             $stmt = $conexao->prepare($sql);
 
-            $stmt->bindValue(':nome',$nome);
+            $stmt->bindValue(':nome', $nome);
             $stmt->execute();
-
-            
-        } catch(PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }
 
-}
+    public function atualizar($nome, $id)
+    {
+        // usamos try/catch quando existe possibilidade de erro, principalmente ao usar banco de dados
+        // o try é onde tentamos executar o código
+        try {
+            // chama o método conectar() da classe Conexao
+            // cria uma conexão configurada e guarda na variável $conexao
+            $conexao = Conexao::conectar();
 
+            // comando SQL responsável por atualizar o nome de uma categoria
+            // :nome e :id são espaços reservados para os valores que serão utilizados
+            $sql = "UPDATE categoria SET nome = :nome WHERE id_categoria = :id";
+
+            // prepara o SQL para executar
+            $stmt = $conexao->prepare($sql);
+
+            // coloca o valor de $nome no espaço reservado :nome
+            $stmt->bindValue(':nome', $nome);
+
+            // coloca o valor de $id no espaço reservado :id
+            $stmt->bindValue(':id', $id);
+
+            // executa o comando no banco
+            $stmt->execute();
+        } catch (PDOException $e) { // executa caso aconteça um erro
+            // mostra o erro encontrado
+            echo $e->getMessage();
+        }
+    }
+}

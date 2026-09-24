@@ -15,6 +15,68 @@ class Livro { // Declara a classe 'Livro', que atua como o Model para representa
     private $capa;
     private $categoria;
 
+        public function carregar($id_livro,$titulo)
+    {
+        try {
+            $conexao = Conexao::conectar();
+            $sql = "SELECT * FROM livro WHERE id_livro = :id";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(':id', $id_livro);
+            $stmt->execute();
+            $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($resultado) {
+                $this->id_livro = $resultado['id_livro'];
+                $this->titulo = $resultado['titulo'];
+            } else {
+                throw new Exception("Livro não encontrado.");
+            }
+        } catch (PDOException $e) {
+            echo 'Erro ao carregar livro: ' . $e->getMessage();
+        }
+    }
+
+    public function deletar($id)
+    {
+        try {
+            $conexao = Conexao::conectar();
+            $sql = "DELETE FROM livro WHERE id_livro = :id";
+            $stmt = $conexao->prepare($sql);
+            $stmt->bindValue(':id', $id);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo 'Erro ao deletar livro: ' . $e->getMessage();
+        }
+    }
+
+
+    public function inserir($titulo, $ano_pub, $autor, $resumo, $capa, $id_categoria){ // Método público para inserir um novo livro no banco de dados.
+        //criar uma conexão com o banco de dados
+        //criar o sql
+        //preparar o sql
+        //substituir os dados depois  de preparado
+        //executar
+
+        try{
+            
+            $conexao = Conexao::conectar();
+
+            $sql = "INSERT INTO livro (titulo,ano_pub,autor,resumo,capa, id_categoria) VALUES (:titulo,:ano_pub,:autor,:resumo,:capa,:id_categoria)";
+            $stmt = $conexao->prepare($sql);
+
+            $stmt->bindValue(':titulo',$titulo);
+            $stmt->bindValue(':ano_pub',$ano_pub);
+            $stmt->bindValue(':autor',$autor);
+            $stmt->bindValue(':resumo',$resumo);
+            $stmt->bindValue(':capa',$capa);
+            $stmt->bindValue(':id_categoria',$id_categoria);
+            $stmt->execute();
+
+            
+        } catch(PDOException $e){
+            echo $e->getMessage();
+        }
+    }
 
     public static function listar() { // Cria um método estático para buscar todos os livros, permitindo chamá-lo sem instanciar a classe (Livro::listar()).
         try { // Inicia um bloco 'try' para tentar executar o código. Se der erro de banco, cai no 'catch'.
