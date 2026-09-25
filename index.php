@@ -6,7 +6,7 @@ $resultado = Livro::listar();
 ?>
 
 <main>
-    <img class="banner jumbo" src="imagens/logo_senac.png" alt="">
+    <img class="banner jumbo" src="imagens/banner_bookverse.jpg" alt="">
     <h1>Biblioteca</h1>
     <div class="card-container">
         <?php foreach ($resultado as $livro): ?>
