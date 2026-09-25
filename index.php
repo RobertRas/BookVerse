@@ -12,7 +12,7 @@ $resultado = Livro::listar();
         <?php foreach ($resultado as $livro): ?>
             <?php
             // Pega o ID com segurança
-            $id = $livro['id_livro'] ?? $livro['id_livro'] ?? '';
+            $id = $livro['Id_livro'] ?? $livro['Id_livro'] ?? '';
 
             // Verifica se 'capa' existe no array retornado do banco
             $capa = $livro['capa'] ?? $livro['imagem'] ?? null;
