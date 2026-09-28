@@ -9,10 +9,13 @@ $resultado = Livro::listar();
     <img class="banner jumbo" src="imagens/banner_bookverse.jpg" alt="">
     <h1>Biblioteca</h1>
     <div class="card-container">
-        <?php foreach ($resultado as $livro): ?>
-            <?php
-            // Pega o ID com segurança
-            $id = $livro['Id_livro'] ?? $livro['Id_livro'] ?? '';
+        <?php if (empty($resultado)): ?>
+            <p>Nenhum livro encontrado.</p>
+        <?php else: ?>
+            <?php foreach ($resultado as $livro): ?>
+                <?php
+                // Pega o ID com segurança
+                $id = $livro['Id_livro'] ?? $livro['Id_livro'] ?? '';
 
             // Verifica se 'capa' existe no array retornado do banco
             $capa = $livro['capa'] ?? $livro['imagem'] ?? null;
@@ -31,7 +34,8 @@ $resultado = Livro::listar();
                     </div>
                 </div>
             </a>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </div>
 </main>
 
