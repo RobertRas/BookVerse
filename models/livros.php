@@ -81,7 +81,7 @@ class Livro { // Declara a classe 'Livro', que atua como o Model para representa
     public static function listar() { // Cria um método estático para buscar todos os livros, permitindo chamá-lo sem instanciar a classe (Livro::listar()).
         try { // Inicia um bloco 'try' para tentar executar o código. Se der erro de banco, cai no 'catch'.
             $conexao = Conexao::conectar(); // Chama o método conectar() da classe Conexao para abrir a comunicação com o banco.
-            $sql = "SELECT * FROM livro"; // Define a string da consulta SQL para selecionar todas as colunas de todos os registros da tabela 'livro'.
+            $sql = "SELECT livro.*, categoria.nome FROM livro  JOIN categoria ON livro.id_categoria = categoria.id_categoria"; // Define a string da consulta SQL para selecionar todas as colunas de todos os registros da tabela 'livro'.
             $stmt = $conexao->prepare($sql); // Prepara a consulta SQL no banco, prática recomendada por segurança.
             $stmt->execute(); // Executa a consulta SQL preparada.
             return $stmt->fetchAll(); // Busca todas as linhas resultantes da consulta e as retorna como um array.

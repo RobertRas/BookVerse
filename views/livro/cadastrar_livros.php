@@ -1,5 +1,8 @@
 <?php
-    require_once "_cabecalho.php"
+    require_once __DIR__ ."/../../template/_cabecalho.php";
+    require_once __DIR__ ."/../../models/categoria.php";
+
+    $categorias = Categoria::listarCategorias();
 ?>
     <main class="main-detalhe">
         <form action="" method="post">
@@ -21,16 +24,21 @@
                 <textarea name="resumo" id="resumo" cols="30" rows="10"></textarea>
             </div>
             <div class="form-items">
+                <label for="foto">Capa: </label>
+                <input type="file" name="capa" id="capa">
+            </div>
+            <div class="form-items">
                 <label for="categoria">Categoria: </label>
                 <select name="categoria" class="categoria">
-                    <option value="aventura">Aventura</option>
-                    <option value="romance">Romance</option>
+                    <?php foreach ($categorias as $categoria): ?>
+                        <option value="<?= $categoria['id_categoria'] ?>"><?= $categoria['nome'] ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div>
             <button type="submit">Cadastrar</button>
         </form>
     </main>
     <?php
-    require_once "_rodape.php"
+    require_once __DIR__ . "/../../template/_rodape.php";
 ?>
 </html>

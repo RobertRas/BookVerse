@@ -1,5 +1,5 @@
 <?php
-    require_once "_cabecalho.php"
+    require_once __DIR__ ."/../../template/_cabecalho.php";
 ?>
 
     <main>
@@ -23,7 +23,7 @@
     </main>
 
 <?php
-    require_once "_rodape.php"
+    require_once __DIR__ . "/../../template/_rodape.php";
 ?>
     <script src="../BookVerse/js/engine.js" defer></script>
 </body>
