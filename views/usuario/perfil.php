@@ -18,8 +18,8 @@ require_once __DIR__ . "/../../template/_cabecalho.php"
             </table> -->
         </div>
         <div class="itens-perfil">
-            <a href="../categoria/gerenciar_categoria.php" class="link-btn">Gerenciar Categorias</a>
-            <a href="../categoria/cadastrar_categoria.php" class="link-btn">Cadastrar Categoria</a>
+            <a href="/BookVerse/views/categoria/gerenciar_categoria.php" class="link-btn">Gerenciar Categorias</a>
+            <a href="/BookVerse/views/livro/cadastrar_livros.php" class="link-btn">Cadastrar livros</a>
         </div>
     </div>
 </main>
@@ -27,7 +27,7 @@ require_once __DIR__ . "/../../template/_cabecalho.php"
 require_once __DIR__ . "/../../template/_rodape.php"
 ?>
 
-<script src="../BookVerse/js/engine.js"></script>
+
 
 </body>
 

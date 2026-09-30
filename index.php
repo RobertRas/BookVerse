@@ -17,23 +17,23 @@ $resultado = Livro::listar();
                 // Pega o ID com segurança
                 $id = $livro['Id_livro'] ?? $livro['Id_livro'] ?? '';
 
-            // Verifica se 'capa' existe no array retornado do banco
-            $capa = $livro['capa'] ?? $livro['imagem'] ?? null;
-            ?>
-            <a href="/BookVerse/views/livro/detalhes.php?id=<?= $id ?>">
-                <div class="card">
-                    <div class="card-img">
-                        <?php if (empty($capa)): ?>
-                            <img src="imagens/Captura de tela 2026-07-01 200144.png" alt="Capa padrão" class="imagem_livro">
-                        <?php else: ?>
-                            <img src="imagens/<?= htmlspecialchars($capa) ?>" alt="<?= htmlspecialchars($livro['titulo'] ?? '') ?>" class="imagem_livro">
-                        <?php endif; ?>
+                // Verifica se 'capa' existe no array retornado do banco
+                $capa = $livro['capa'] ?? $livro['imagem'] ?? null;
+                ?>
+                <a href="/BookVerse/views/livro/detalhes.php?id=<?= $id ?>">
+                    <div class="card">
+                        <div class="card-img">
+                            <?php if (empty($capa)): ?>
+                                <img src="imagens/Captura de tela 2026-07-01 200144.png" alt="Capa padrão" class="imagem_livro">
+                            <?php else: ?>
+                                <img src="imagens/<?= htmlspecialchars($capa) ?>" alt="<?= htmlspecialchars($livro['titulo'] ?? '') ?>" class="imagem_livro">
+                            <?php endif; ?>
+                        </div>
+                        <div class="card-text">
+                            <h2><?= htmlspecialchars($livro['titulo'] ?? 'Sem título'); ?></h2>
+                        </div>
                     </div>
-                    <div class="card-text">
-                        <h2><?= htmlspecialchars($livro['titulo'] ?? 'Sem título'); ?></h2>
-                    </div>
-                </div>
-            </a>
+                </a>
             <?php endforeach; ?>
         <?php endif; ?>
     </div>

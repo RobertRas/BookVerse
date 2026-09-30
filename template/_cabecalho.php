@@ -18,9 +18,9 @@ require_once __DIR__ . "/../auth/autenticacao.php";
     </video>
     <header>
         <div class="logo-menu">
-            <img src="imagens/banner-bookverse.jpg" alt="" class="logo">
+            <img src="/bookverse/imagens/logo_senac.png" alt="" class="logo">
 
-            <img src="imagens/menu.png" alt="" id="btn-menu">
+            <img src="/bookverse/imagens/menu.png" alt="" id="btn-menu">
         </div>
 
         <h1> BookVerse</h1>
@@ -37,6 +37,7 @@ require_once __DIR__ . "/../auth/autenticacao.php";
             <?php endif; ?>
         </nav>
     </header>
+    
 
     <?php
 
