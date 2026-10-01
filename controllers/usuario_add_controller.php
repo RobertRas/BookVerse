@@ -2,7 +2,6 @@
 require_once __DIR__ . "/../models/usuario.php";
 $nome = $_POST["nome"];
 
-
 //receber os dados do front
 $email = $_POST["email"];
 $senha = $_POST["senha"];
@@ -15,19 +14,22 @@ if (!empty($_FILES["foto"]["name"])) {
     //verifica a extensão do arquivo enviado para garantir que seja uma imagem válida (jpg, jpeg, png ou gif)
     $extensao =  strtolower(pathinfo($foto["name"], PATHINFO_EXTENSION));
 
-    $nomedafoto = uniqid() . "." . $extensao; //gera um nome único para a foto, evitando conflitos com nomes de arquivos existentes
+    $nomedafoto = uniqid() . "." . $extensao; //gera um nome único
 
-    $caminho = __DIR__ . "/../imagens/fotos/uploads/" . $nomedafoto; //define o caminho onde a foto será salva no servidor
+    $caminho = __DIR__ . "/../imagens/fotos/uploads/" . $nomedafoto; //define o caminho
 
-    move_uploaded_file($foto["tmp_name"], $caminho); //move a foto do diretório temporário para o diretório de destino
+    move_uploaded_file($foto["tmp_name"], $caminho); //move a foto
 
 } else {
-    $foto = null; // Se não houver foto, defina como null ou um valor padrão
+    // CORREÇÃO 1: Mudar de $foto para $nomedafoto
+    $nomedafoto = null; 
 }
 
 
 $usuario = new Usuario();
-$usuario->inserir($nome, $email, $senha, $foto); // chama o método inserir da classe Usuario, passando os dados do usuário (nome, email, senha e foto) para serem salvos no banco de dados
 
-header("Location: /bookverse/views/usuario/login.php"); //redireciona o usuário para a página de login após o cadastro
+// CORREÇÃO 2: Passar a variável $nomedafoto em vez de $foto
+$usuario->inserir($nome, $email, $senha, $nomedafoto); 
+
+header("Location: /bookverse/views/usuario/login.php"); 
 exit();

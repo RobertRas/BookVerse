@@ -26,7 +26,7 @@ $resultado = Livro::listar();
                             <?php if (empty($capa)): ?>
                                 <img src="imagens/Captura de tela 2026-07-01 200144.png" alt="Capa padrão" class="imagem_livro">
                             <?php else: ?>
-                                <img src="imagens/<?= htmlspecialchars($capa) ?>" alt="<?= htmlspecialchars($livro['titulo'] ?? '') ?>" class="imagem_livro">
+                                <img src="imagens/capas/uploads/<?= htmlspecialchars($capa) ?>" alt="<?= htmlspecialchars($livro['titulo'] ?? '') ?>" class="imagem_livro">
                             <?php endif; ?>
                         </div>
                         <div class="card-text">

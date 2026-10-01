@@ -170,15 +170,22 @@ form{
     margin-left: 10px;
 }
 
-button{
+/* Agrupamos a classe .link-btn com a tag button */
+button, .link-btn {
     background-color: var(--ter);
     color: var(--sec);
     border-radius: 10px;
-    padding: 0.5rem;
-    margin: 1rem;
+    padding: 0.5rem 1rem; /* Ajustei levemente para as laterais do botão ficarem melhores */
+    margin: 1rem 0; /* Margem apenas em cima e embaixo para não desalinhar com a tabela */
+    
+    /* Regras específicas para links parecerem botões */
+    text-decoration: none; 
+    display: inline-block; 
+    border: 1px solid transparent; /* Evita que o botão "pule" no hover */
 }
 
-button:hover{
+/* Agrupamos também o efeito hover (quando passa o mouse) */
+button:hover, .link-btn:hover {
     background-color: var(--sec);
     color: var(--ter);
     border: 1px solid var(--sec);
@@ -192,15 +199,21 @@ button:hover{
     display: flex !important;
 }
 
-.gerenciar-livros, .gerenciar-categoria{
+/* Configuração geral da tabela */
+.gerenciar-livros, .gerenciar-categoria {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Essencial para que as bordas não fiquem duplas */
     background-color: var(--prim);
+    border: 2px solid var(--sec); /* Borda mais grossa em volta de toda a tabela externa */
 }
 
-.gerenciar-livros th, .gerenciar-categoria td{
-    border: 1px solid var(--sec);
-    padding: 8px;
+/* Aplicando bordas e espaçamento NAS CÉLULAS (linhas e colunas) */
+.gerenciar-livros th, 
+.gerenciar-livros td,
+.gerenciar-categoria th, 
+.gerenciar-categoria td {
+    border: 1px solid var(--sec); /* Cria a grade dividindo colunas e linhas */
+    padding: 12px 15px; /* 12px em cima/embaixo, 15px nas laterais. Resolve o texto espremido! */
     text-align: left;
 }
 
@@ -270,3 +283,47 @@ footer{
   object-fit: cover; /* corta proporcionalmente para preencher */
 }
 
+
+.cartao-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--prim);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 350px;
+    border: 2px solid var(--sec);
+    text-align: center;
+}
+
+/* Deixa a foto redonda e com tamanho padronizado */
+.img-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* Evita que a foto fique esticada */
+    border: 2px solid var(--sec);
+    margin-bottom: 1rem;
+}
+
+.dados-usuario h2 {
+    color: var(--sec);
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.dados-usuario p {
+    color: var(--ter);
+    margin: 5px 0 20px 0;
+}
+
+.itens-perfil {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.itens-perfil .link-btn {
+    width: 100%; /* Faz os botões ocuparem toda a largura do cartão */
+    text-align: center;
+}

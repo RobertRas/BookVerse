@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . "/../auth/autenticacao.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -9,6 +10,7 @@ require_once __DIR__ . "/../auth/autenticacao.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookVerse</title>
     <link rel="stylesheet" href="/bookverse/CSS/style.css">
+    <script src="/BookVerse/js/engine.js" defer></script>
 </head>
 
 <body>
@@ -18,9 +20,9 @@ require_once __DIR__ . "/../auth/autenticacao.php";
     </video>
     <header>
         <div class="logo-menu">
-            <img src="imagens/logo_senac.png" alt="" class="logo">
+            <img src="/BookVerse/imagens/logo_senac.png" alt="Logo" class="logo">
 
-            <img src="../imagens/menu.png" alt="" id="btn-menu">
+            <img src="/BookVerse/imagens/menu.png" alt="Menu" id="btn-menu">
         </div>
 
         <h1> BookVerse</h1>
@@ -37,7 +39,8 @@ require_once __DIR__ . "/../auth/autenticacao.php";
             <?php endif; ?>
         </nav>
     </header>
-    
+    <!-- ADICIONE ASSIM, FORA DAS TAGS <?php ?> -->
+
 
     <?php
 
