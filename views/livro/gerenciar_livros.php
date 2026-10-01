@@ -30,8 +30,8 @@
                         <td><?= htmlspecialchars($livro['nome'] ?? '') ?></td> 
                         
                         <!-- Passando o ID do livro via GET (URL) para as páginas de editar e excluir -->
-                        <td><a href="editar_livro.php?id=<?= $livro['id_livro'] ?>">Editar</a></td>
-                        <td><a href="../../controllers/livro_del_controller.php?id=<?= $livro['id_livro'] ?>">Excluir</a></td>
+                        <td><a href="/BookVerse/views/livro/editar_livro.php?id=<?= $livro['Id_livro'] ?>">Editar</a></td>
+                        <td><a href="/BookVerse/controllers/livro_del_controller.php?id=<?= $livro['Id_livro'] ?>">Excluir</a></td>
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>

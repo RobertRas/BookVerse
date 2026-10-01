@@ -15,7 +15,23 @@ class Livro { // Declara a classe 'Livro', que atua como o Model para representa
     private $capa;
     private $categoria;
 
-        public function carregar($id_livro,$titulo)
+    public function getTitulo() { // Método público para obter o título do livro.
+        return $this->titulo; // Retorna o valor da propriedade 'titulo'.
+    }
+
+    public function getano_pub() {
+        return $this->ano_pub; // Retorna o valor da propriedade 'ano_pub'.
+    }
+
+    public function getAutor() { return $this->autor; }
+
+    public function getResumo() { return $this->resumo; }
+    public function getCapa() { return $this->capa; }
+    public function getCategoria() { return $this->categoria; }
+
+    public function getId() { return $this->id_livro; }
+
+    public function carregar($id_livro)
     {
         try {
             $conexao = Conexao::conectar();
@@ -26,8 +42,14 @@ class Livro { // Declara a classe 'Livro', que atua como o Model para representa
             $resultado = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($resultado) {
-                $this->id_livro = $resultado['id_livro'];
+                $this->id_livro = $resultado['Id_livro'];
                 $this->titulo = $resultado['titulo'];
+                $this->ano_pub = $resultado['ano_pub'];
+                $this->autor = $resultado['autor'];
+                $this->resumo = $resultado['resumo'];
+                //$this->capa = $resultado['capa'];
+                $this->categoria = $resultado['id_categoria'];
+                
             } else {
                 throw new Exception("Livro não encontrado.");
             }
@@ -81,7 +103,7 @@ class Livro { // Declara a classe 'Livro', que atua como o Model para representa
     public static function listar() { // Cria um método estático para buscar todos os livros, permitindo chamá-lo sem instanciar a classe (Livro::listar()).
         try { // Inicia um bloco 'try' para tentar executar o código. Se der erro de banco, cai no 'catch'.
             $conexao = Conexao::conectar(); // Chama o método conectar() da classe Conexao para abrir a comunicação com o banco.
-            $sql = "SELECT livro.*, categoria.nome FROM livro  LEFT JOIN categoria ON livro.id_categoria = categoria.id_categoria"; // Define a string da consulta SQL para selecionar todas as colunas de todos os registros da tabela 'livro'.
+            $sql = "SELECT livro.*, categoria.nome FROM livro  JOIN categoria ON livro.id_categoria = categoria.id_categoria"; // Define a string da consulta SQL para selecionar todas as colunas de todos os registros da tabela 'livro'.
             $stmt = $conexao->prepare($sql); // Prepara a consulta SQL no banco, prática recomendada por segurança.
             $stmt->execute(); // Executa a consulta SQL preparada.
             return $stmt->fetchAll(); // Busca todas as linhas resultantes da consulta e as retorna como um array.
@@ -107,4 +129,66 @@ class Livro { // Declara a classe 'Livro', que atua como o Model para representa
             echo 'Erro ao buscar o livro: ' . $e->getMessage(); // Exibe a mensagem de erro na tela.
         }
     }
+
+        public function atualizar($nome, $id)
+    {
+        // usamos try/catch quando existe possibilidade de erro, principalmente ao usar banco de dados
+        // o try é onde tentamos executar o código
+        try {
+            // chama o método conectar() da classe Conexao
+            // cria uma conexão configurada e guarda na variável $conexao
+            $conexao = Conexao::conectar();
+
+            // comando SQL responsável por atualizar o nome de uma categoria
+            // :nome e :id são espaços reservados para os valores que serão utilizados
+            $sql = "UPDATE livro SET nome = :nome WHERE id_livro= :id";
+
+            // prepara o SQL para executar
+            $stmt = $conexao->prepare($sql);
+
+            // coloca o valor de $nome no espaço reservado :nome
+            $stmt->bindValue(':nome', $nome);
+
+            // coloca o valor de $id no espaço reservado :id
+            $stmt->bindValue(':id', $id);
+
+            // executa o comando no banco
+            $stmt->execute();
+        } catch (PDOException $e) { // executa caso aconteça um erro
+            // mostra o erro encontrado
+            echo $e->getMessage();
+        }
+    }
+
+        public function atualizarSemCapa($nome, $id)
+    {
+        // usamos try/catch quando existe possibilidade de erro, principalmente ao usar banco de dados
+        // o try é onde tentamos executar o código
+        try {
+            // chama o método conectar() da classe Conexao
+            // cria uma conexão configurada e guarda na variável $conexao
+            $conexao = Conexao::conectar();
+
+            // comando SQL responsável por atualizar o nome de uma categoria
+            // :nome e :id são espaços reservados para os valores que serão utilizados
+            $sql = "UPDATE livro SET nome = :nome WHERE id_livro= :id";
+
+            // prepara o SQL para executar
+            $stmt = $conexao->prepare($sql);
+
+            // coloca o valor de $nome no espaço reservado :nome
+            $stmt->bindValue(':nome', $nome);
+
+            // coloca o valor de $id no espaço reservado :id
+            $stmt->bindValue(':id', $id);
+
+            // executa o comando no banco
+            $stmt->execute();
+        } catch (PDOException $e) { // executa caso aconteça um erro
+            // mostra o erro encontrado
+            echo $e->getMessage();
+        }
+    }
+
+
 }

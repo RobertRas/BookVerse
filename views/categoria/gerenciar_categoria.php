@@ -6,6 +6,7 @@ $resultado = Categoria::listarCategorias();
 ?>
 
 <main>
+    <a href="/BookVerse/views/categoria/cadastrar_categoria.php" class="link-btn">Cadastrar Categoria</a>
     <table class="gerenciar-categoria">
         <tr>
             <th>Nome Categoria</th>

@@ -10,4 +10,4 @@ $livro = new Livro();
 $livro->deletar($id);
 
 header("Location: /BookVerse/views/livro/gerenciar_livros.php");
-exit() ;
+exit();
