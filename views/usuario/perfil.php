@@ -1,33 +1,34 @@
 <?php
-require_once __DIR__ . "/../../template/_cabecalho.php"
+    require_once __DIR__ . "/../../template/_cabecalho.php"
+
 ?>
 
 
 <main class="main-detalhe">
-    <div class="container-perfil">
-        <div class="itens-perfil">
-            <p>Nome: <?=$_SESSION['nome']; ?></p>
-            <p>Email: <?= $_SESSION['email']; ?></p>
-            <!-- <table class="gerenciar-livros">
-                <tr>
-                    <th>nome do administrador</th>
-                    <th><a href="gerenciar_livros.php">administrar livros</a></th>
-                    <th>email@dominio.com</th>
-                    <th colspan="2"><a href="gerenciar_categoria.php">administrar categorias</a></th>
-                </tr>
-            </table> -->
+    <div class="cartao-perfil">
+        <div class="celula foto">
+            <?php if ($_SESSION['foto'] == null): ?>
+                <img src="../../imagens/fotos/logo_senac.png" alt="">
+            <?php else: ?>
+                <img src="/BookVerse/imagens/fotos/uploads/<?= $_SESSION['foto'] ?>" alt="">
+            <?php endif; ?>
         </div>
-        <div class="itens-perfil">
-            <a href="../categoria/gerenciar_categoria.php" class="link-btn">Gerenciar Categorias</a>
-            <a href="../categoria/cadastrar_categoria.php" class="link-btn">Cadastrar Categoria</a>
+        <div class="celula nome">
+            <p><?= $_SESSION['nome'] ?></p>
         </div>
-    </div>
+        <div class="celula email">
+            <p><?= $_SESSION['email'] ?></p>
+        </div>
+        <div class="navegacao">
+            <a href="../categoria/gerenciar_categoria.php" class="celula">gerenciar categorias</a>
+            <a href="../livro/cadastrar_livros.php" class="celula">cadastrar livros</a>
+        </div>
 </main>
 <?php
 require_once __DIR__ . "/../../template/_rodape.php"
 ?>
 
-<script src="../BookVerse/js/engine.js"></script>
+<script src="../../js/engine.js"></script>
 
 </body>
 
