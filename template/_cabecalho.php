@@ -37,6 +37,7 @@ require_once __DIR__ . "/../auth/autenticacao.php";
             <?php endif; ?>
         </nav>
     </header>
+    
 
     <?php
 
