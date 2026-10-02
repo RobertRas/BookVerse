@@ -1,9 +1,12 @@
 <?php
 require_once __DIR__ . "/../../template/_cabecalho.php";
 require_once __DIR__ . "/../../models/livros.php"; // 1. Importa o model
+require_once __DIR__ . "/../../auth/autenticacao.php"; // 1. Importa a classe de autenticação
 
 // 2. Busca os livros no banco de dados
 $livros = Livro::listar();
+
+Autenticacao::verificaSessao()
 ?>
 
 <main>

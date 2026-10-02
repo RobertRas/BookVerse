@@ -1,9 +1,11 @@
 <?php // Tag de abertura que indica o início do script PHP.
 
-class Autenticacao { // Declara a classe 'Autenticacao', criada para agrupar as regras e ações de login do sistema.
-    
-    public static function logar($email, $senha) { // Cria um método público e estático que recebe o '$email' e a '$senha' informados pelo usuário.
-        
+class Autenticacao
+{ // Declara a classe 'Autenticacao', criada para agrupar as regras e ações de login do sistema.
+
+    public static function logar($email, $senha)
+    { // Cria um método público e estático que recebe o '$email' e a '$senha' informados pelo usuário.
+
         session_start(); // Inicia uma nova sessão (ou retoma uma existente) para permitir o uso da superglobal $_SESSION, que manterá o usuário logado.
 
         $sql = "SELECT * FROM usuario WHERE email = :email"; // Escreve a consulta SQL que vai procurar na tabela 'usuario' a linha correspondente ao email fornecido.
@@ -18,6 +20,7 @@ class Autenticacao { // Declara a classe 'Autenticacao', criada para agrupar as 
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['email'] = $usuario['email'];
             $_SESSION['foto'] = $usuario['foto'];
+            $_SESSION['nivel_acesso'] = $usuario['nivel_acesso']; // Armazena o nível de acesso do usuário na sessão, permitindo que o sistema saiba se ele é um administrador ou um usuário comum. .
 
             header("Location:/BookVerse/views/usuario/perfil.php"); // Envia um cabeçalho HTTP instruindo o navegador a redirecionar o usuário logado para a página de perfil.
             exit(); // Interrompe imediatamente a execução do script para garantir que nada mais seja processado após o redirecionamento de sucesso.
@@ -28,14 +31,16 @@ class Autenticacao { // Declara a classe 'Autenticacao', criada para agrupar as 
     }
 
     //verifica se o usuario está logado
-    public static function estaAutenticado() {
+    public static function estaAutenticado()
+    {
         session_start();
         return isset($_SESSION['id_usuario']); //isset retorna true se o usuario estiver logado
     }
 
-    public static function logout() {
+    public static function logout()
+    {
         session_start();
-        $_SESSION=[];
+        $_SESSION = [];
         session_destroy();
 
         header('Location: /BookVerse/views/usuario/login.php');
@@ -43,11 +48,26 @@ class Autenticacao { // Declara a classe 'Autenticacao', criada para agrupar as 
     }
 
     //verifica se a pessoa tá logada e redireciona para a página de login
-    public static function exigirAutenticacao(){
+    public static function exigirAutenticacao()
+    {
         if (!self::estaAutenticado()) {
             header('Location: /BookVerse/views/usuario/login.php');
             exit();
         }
     }
-}
 
+    public static function VerificaAdmin()
+    {
+        //session_start();
+        return $_SESSION['nivel_acesso'] == 2; // Supondo que 2 represente o nível de acesso de um administrador
+    }
+
+    public static function verificaSessao()
+    {
+        if (!self::estaAutenticado() || !self::VerificaAdmin()) {
+            $_SESSION['aviso'] = 'você precisa estar logado para acessar essa página';
+            header('Location: /BookVerse/views/usuario/login.php');
+            exit();
+        }
+    }
+}

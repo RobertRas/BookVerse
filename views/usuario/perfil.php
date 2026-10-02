@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . "/../../template/_cabecalho.php";
+require_once __DIR__ . "/../../template/_cabecalho.php";
 ?>
 
 <main class="main-detalhe">
@@ -16,14 +16,15 @@
         <!-- Nova div para exibir os dados do usuário -->
         <div class="dados-usuario">
             <!-- Usa operador de coalescência (??) caso a sessão esteja vazia por algum motivo -->
-            <h2><?= htmlspecialchars($_SESSION['nome'] ?? 'Nome do Usuário') ?></h2>
-            <p><?= htmlspecialchars($_SESSION['email'] ?? 'email@exemplo.com') ?></p>
+            <h2><?= $_SESSION['nome'] ?></h2>
+            <p><?= $_SESSION['email'] ?></p>
         </div>
-
-        <div class="itens-perfil">
-            <a href="/BookVerse/views/categoria/gerenciar_categoria.php" class="link-btn">Gerenciar Categorias</a>
-            <a href="/BookVerse/views/livro/gerenciar_livros.php" class="link-btn">Gerenciar livros</a>
-        </div>
+        <?php if (Autenticacao::VerificaAdmin()): ?>
+            <div class="itens-perfil">
+                <a href="/BookVerse/views/categoria/gerenciar_categoria.php" class="link-btn">Gerenciar Categorias</a>
+                <a href="/BookVerse/views/livro/gerenciar_livros.php" class="link-btn">Gerenciar livros</a>
+            </div>
+        <?php endif; ?>
     </div>
 </main>
 
@@ -34,4 +35,5 @@ require_once __DIR__ . "/../../template/_rodape.php";
 <script src="../../js/engine.js"></script>
 
 </body>
+
 </html>
